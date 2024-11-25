@@ -1,3 +1,6 @@
+"use client";
+import { useState } from "react";
+
 import Image from "next/image";
 import logo from "@/assets/images/logo-white.png";
 import Link from "next/link";
@@ -5,6 +8,8 @@ import profileDefault from "@/assets/images/profile.png";
 import { FaGoogle } from "react-icons/fa";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <nav className="bg-blue-700 border-b border-blue-500">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
