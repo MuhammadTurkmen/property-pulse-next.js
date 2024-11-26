@@ -1,5 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  FaBed,
+  FaBath,
+  FaRulerCombined,
+  FaMoneyBill,
+  FaMapMarker,
+} from "react-icons/fa";
 
 const PropertyCard = ({ property }) => {
   const getRateDisply = () => {
@@ -36,15 +43,15 @@ const PropertyCard = ({ property }) => {
 
         <div class="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
-            <i class="fa-solid fa-bed"></i> {property.beds}{" "}
+            <FaBed className="inline mr-2" /> {property.beds}{" "}
             <span class="md:hidden lg:inline">Beds</span>
           </p>
           <p>
-            <i class="fa-solid fa-bath"></i> {property.baths}{" "}
+            <FaBath className="inline mr-2" /> {property.baths}{" "}
             <span class="md:hidden lg:inline">Baths</span>
           </p>
           <p>
-            <i class="fa-solid fa-ruler-combined"></i> {property.square_feet}{" "}
+            <FaRulerCombined className="inline mr-2" /> {property.square_feet}{" "}
             <span class="md:hidden lg:inline">sqft</span>
           </p>
         </div>
@@ -72,14 +79,17 @@ const PropertyCard = ({ property }) => {
         <div class="flex flex-col lg:flex-row justify-between mb-4">
           <div class="flex align-middle gap-2 mb-4 lg:mb-0">
             <i class="fa-solid fa-location-dot text-lg text-orange-700"></i>
-            <span class="text-orange-700"> Boston MA </span>
+            <span class="text-orange-700">
+              {" "}
+              {property.location.city} {property.location.state}{" "}
+            </span>
           </div>
-          <a
-            href="property.html"
+          <Link
+            href={`/properties/${property._id}`}
             class="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
