@@ -1,6 +1,12 @@
 import PropertyCard from "@/components/PropertyCard";
 import properties from "@/properties.json";
 
+async function fetchProperties() {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLiC_API_DOMAIN}/properties`);
+  } catch (error) {}
+}
+
 const PropertiesPage = () => {
   return (
     <section className="px-4 py-6">
